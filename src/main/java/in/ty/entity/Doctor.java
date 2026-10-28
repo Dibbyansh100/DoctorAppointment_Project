@@ -1,5 +1,6 @@
 package in.ty.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -7,6 +8,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,5 +31,8 @@ public class Doctor {
 	private Specalization specilization;
 	private Double consultationFee;
 	private Boolean active = true;
+	
+	@OneToMany(cascade = CascadeType.ALL,mappedBy="doctor")
+	private Appointment appointment;
 
 }

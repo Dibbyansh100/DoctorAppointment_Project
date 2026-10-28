@@ -9,7 +9,7 @@ public record DoctorResponse(
 		String phone,
 		Specalization specilization,
 		Double consultationFee,
-		Boolean active
+		Boolean isActive
 		) {
 
 }

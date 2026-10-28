@@ -1,5 +1,8 @@
 package in.ty.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -68,5 +71,33 @@ public class PatientService {
 		);
 		 return new ResponseStructure<PatientResponse>(
 			 HttpStatus.ACCEPTED.value(),"Record updated successfully",res);
+	 }
+	 //3.GET All Patient
+	// API 2: Get All Patients
+	 public ResponseStructure<List<PatientResponse>> getAllPatients() {
+	     
+	     // 1. Retrieve all patients from the database
+	     List<Patient> patients = patientRepository.findAll();
+	     
+	     // 2. Convert each entity into a response DTO using a loop
+	     List<PatientResponse> responseList = new ArrayList<>();
+	     for (Patient patient : patients) {
+	         PatientResponse res = new PatientResponse(
+	                 patient.getId(),
+	                 patient.getName(),
+	                 patient.getAge(),
+	                 patient.getPhone(),
+	                 patient.getAddress(),
+	                 patient.isActive()
+	         );
+	         responseList.add(res);
+	     }
+	             
+	     // 3. Return the list
+	     return new ResponseStructure<>(
+	             HttpStatus.OK.value(), 
+	             "Patients retrieved successfully", 
+	             responseList
+	     );
 	 }
 }
