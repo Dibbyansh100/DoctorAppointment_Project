@@ -1,4 +1,4 @@
-package in.ty.dto;
+package com.clinic.appointment.patient.dto;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;

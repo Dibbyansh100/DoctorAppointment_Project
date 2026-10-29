@@ -1,4 +1,9 @@
-package in.ty.entity;
+package com.clinic.appointment.doctor;
+
+import java.util.List;
+
+import com.clinic.appointment.appointment.Appointment;
+import com.clinic.appointment.appointment.Specalization;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -32,7 +37,7 @@ public class Doctor {
 	private Double consultationFee;
 	private Boolean active = true;
 	
-	@OneToMany(cascade = CascadeType.ALL,mappedBy="doctor")
-	private Appointment appointment;
+	@OneToMany(mappedBy = "doctor")
+	private List<Appointment> appointments;
 
 }

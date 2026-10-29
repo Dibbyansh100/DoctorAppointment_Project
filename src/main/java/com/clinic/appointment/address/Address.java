@@ -1,4 +1,6 @@
-package in.ty.entity;
+package com.clinic.appointment.address;
+
+import com.clinic.appointment.patient.Patient;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

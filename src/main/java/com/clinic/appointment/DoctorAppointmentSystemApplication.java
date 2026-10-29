@@ -1,4 +1,4 @@
-package in.ty;
+package com.clinic.appointment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

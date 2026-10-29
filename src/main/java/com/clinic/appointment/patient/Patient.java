@@ -1,6 +1,9 @@
-package in.ty.entity;
+package com.clinic.appointment.patient;
 
 import java.util.List;
+
+import com.clinic.appointment.address.Address;
+import com.clinic.appointment.appointment.Appointment;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -21,7 +24,7 @@ import lombok.Setter;
 public class Patient {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "patient_id_generator")
-	private long id;
+	private Long id;
 	@Column(name = "p_name", nullable = false)
 	private String name;
 	@Column(nullable = false)

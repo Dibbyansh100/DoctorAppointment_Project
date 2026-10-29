@@ -1,4 +1,4 @@
-package in.ty.controller;
+package com.clinic.appointment.patient;
 
 import java.util.List;
 
@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import in.ty.dto.PatientPartialRequest;
-import in.ty.dto.PatientRequest;
-import in.ty.dto.PatientResponse;
-import in.ty.dto.ResponseStructure;
-import in.ty.service.PatientService;
+import com.clinic.appointment.patient.dto.PatientPartialRequest;
+import com.clinic.appointment.patient.dto.PatientRequest;
+import com.clinic.appointment.patient.dto.PatientResponse;
+import com.clinic.appointment.patient.dto.ResponseStructure;
+
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
@@ -42,5 +42,23 @@ public class PatientController {
     public ResponseStructure<List<PatientResponse>> getAllPatient() {
         return patientService.getAllPatients();
         }
+	//4.GetPatientById
+	@ResponseStatus(HttpStatus.OK)
+    @GetMapping("/patient/{id}")
+    public ResponseStructure<PatientResponse> getPatientById(@PathVariable Long patientId) {
+        return patientService.getPatientById(patientId);
+        }
+	//5.DeActivatePatient
+	@ResponseStatus(HttpStatus.OK)
+	@PatchMapping("/patient/{id}/deactivate")
+	public ResponseStructure<PatientResponse> deactivatePatient(@PathVariable  Long patientId){
+		return patientService.deactivatePatient(patientId);
+	}
+	//6.ReActivatePatient
+	@ResponseStatus(HttpStatus.OK)
+	@PatchMapping("/patient/{id}/activate")
+	public ResponseStructure<PatientResponse> activatePatient(@PathVariable Long patientId){
+		return patientService.ActivatePatient(patientId);
+	}
 
 }

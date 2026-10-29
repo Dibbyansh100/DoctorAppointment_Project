@@ -1,6 +1,6 @@
-package in.ty.dto;
+package com.clinic.appointment.doctor.dto;
 
-import in.ty.entity.Specalization;
+import com.clinic.appointment.appointment.Specalization;
 
 public record DoctorResponse(
 		Long id,

@@ -1,8 +1,6 @@
-package in.ty.repository;
+package com.clinic.appointment.doctor;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import in.ty.entity.Doctor;
 
 public interface DoctorRepository extends JpaRepository<Doctor, Long> {
 

@@ -1,4 +1,4 @@
-package in.ty.entity;
+package com.clinic.appointment.appointment;
 
 public enum Specalization {
 	CARDIOLOGY,

@@ -1,6 +1,6 @@
-package in.ty.dto;
+package com.clinic.appointment.patient.dto;
 
-import in.ty.entity.Address;
+import com.clinic.appointment.address.Address;
 
 public record PatientResponse(
 		  long id,

@@ -1,6 +1,7 @@
-package in.ty.dto;
+package com.clinic.appointment.patient.dto;
 
-import in.ty.entity.Address;
+import com.clinic.appointment.address.Address;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
