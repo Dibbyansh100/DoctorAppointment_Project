@@ -1,9 +1,11 @@
 package com.clinic.appointment.patient.dto;
 
+import java.util.UUID;
+
 import com.clinic.appointment.address.Address;
 
 public record PatientResponse(
-		  long id,
+		  UUID id,
 		  String name,
 		  int age,
 		  String phone,

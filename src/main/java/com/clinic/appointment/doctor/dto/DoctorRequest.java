@@ -1,5 +1,7 @@
 package com.clinic.appointment.doctor.dto;
 
+import java.math.BigDecimal;
+
 import com.clinic.appointment.appointment.Specalization;
 
 import jakarta.validation.constraints.NotBlank;
@@ -17,7 +19,7 @@ public record DoctorRequest(
 		@NotBlank
 		Specalization specilization,
 		@PositiveOrZero
-		Double consultationFee
+		BigDecimal consultationFee
 		) {
 
 }

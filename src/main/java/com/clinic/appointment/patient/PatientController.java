@@ -1,6 +1,7 @@
 package com.clinic.appointment.patient;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,7 +34,7 @@ public class PatientController {
 	//2.UpdatePatient
 	@ResponseStatus(HttpStatus.ACCEPTED)
 	@PatchMapping("/patient/{update}")
-	public ResponseStructure<PatientResponse> PatientPartialUpdate(@PathVariable PatientPartialRequest request,Long  Id){
+	public ResponseStructure<PatientResponse> PatientPartialUpdate(@PathVariable PatientPartialRequest request,UUID Id){
 		return patientService.PatientPartialUpdation(request, Id);
 	}
 	//3.GetAll Patient
@@ -45,19 +46,19 @@ public class PatientController {
 	//4.GetPatientById
 	@ResponseStatus(HttpStatus.OK)
     @GetMapping("/patient/{id}")
-    public ResponseStructure<PatientResponse> getPatientById(@PathVariable Long patientId) {
-        return patientService.getPatientById(patientId);
+    public ResponseStructure<PatientResponse> getPatientById(@PathVariable UUID id) {
+        return patientService.getPatientById(id);
         }
 	//5.DeActivatePatient
 	@ResponseStatus(HttpStatus.OK)
 	@PatchMapping("/patient/{id}/deactivate")
-	public ResponseStructure<PatientResponse> deactivatePatient(@PathVariable  Long patientId){
-		return patientService.deactivatePatient(patientId);
+	public ResponseStructure<PatientResponse> deactivatePatient(@PathVariable  UUID id){
+		return patientService.deactivatePatient(id);
 	}
 	//6.ReActivatePatient
 	@ResponseStatus(HttpStatus.OK)
 	@PatchMapping("/patient/{id}/activate")
-	public ResponseStructure<PatientResponse> activatePatient(@PathVariable Long patientId){
+	public ResponseStructure<PatientResponse> activatePatient(@PathVariable UUID patientId){
 		return patientService.ActivatePatient(patientId);
 	}
 

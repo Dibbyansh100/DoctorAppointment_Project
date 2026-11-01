@@ -1,5 +1,7 @@
 package com.clinic.appointment.address;
 
+import java.util.UUID;
+
 import com.clinic.appointment.patient.Patient;
 
 import jakarta.persistence.Entity;
@@ -18,7 +20,7 @@ import lombok.Setter;
 public class Address {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY,generator = "doctor_id_generator")
-	private Long id;
+	private UUID id;
 	private String houseNumber;
 	private Long pincode;
 	private String city;

@@ -1,6 +1,8 @@
 package com.clinic.appointment.doctor;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.UUID;
 
 import com.clinic.appointment.appointment.Appointment;
 import com.clinic.appointment.appointment.Specalization;
@@ -15,17 +17,20 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Doctor {
 	@Id
-	@SequenceGenerator(name= "doctor_id_generator",initialValue = 1001, allocationSize =1,sequenceName = "doc_id_seq")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "doctor_id_generator")
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.UUID)
+	private UUID id;
 	@Column(nullable = false)
 	private String name;
 	@Column(unique = true,nullable = false)
@@ -34,7 +39,8 @@ public class Doctor {
 	private String phone;
 	@Enumerated(EnumType.STRING)
 	private Specalization specilization;
-	private Double consultationFee;
+	@Column(precision = 10, scale = 2)
+	private BigDecimal consultationFee;
 	private Boolean active = true;
 	
 	@OneToMany(mappedBy = "doctor")

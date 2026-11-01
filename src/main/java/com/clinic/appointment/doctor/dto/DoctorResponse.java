@@ -1,14 +1,17 @@
 package com.clinic.appointment.doctor.dto;
 
+import java.math.BigDecimal;
+import java.util.UUID;
+
 import com.clinic.appointment.appointment.Specalization;
 
 public record DoctorResponse(
-		Long id,
+		UUID id,
 		String name,
 		String email,
 		String phone,
 		Specalization specilization,
-		Double consultationFee,
+		BigDecimal consultationFee,
 		Boolean isActive
 		) {
 
